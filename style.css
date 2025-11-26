@@ -1,0 +1,136 @@
+/* ================================================= */
+/* ГЛОБАЛЬНЫЕ СТИЛИ: ТЕМНАЯ ТЕМА */
+/* ================================================= */
+
+body {
+    background-color: #1a1a1a; /* Темный фон */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #f5f5f5; /* Светлый текст */
+}
+
+/* Изменено: Убраны селекторы языка и .signup-box для соответствия новому макету */
+.login-box {
+    background-color: #262626; /* Темно-серый фон блока */
+    border: 1px solid #363636; /* Темная рамка */
+    border-radius: 8px; /* Более скругленные углы */
+    padding: 30px 40px; /* Большие отступы */
+    width: 320px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.language-selector {
+    color: #a8a8a8; /* Более светлый серый для контраста */
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.logo {
+    /* Используем подключенный шрифт Grand Hotel */
+    font-family: 'Grand Hotel', cursive; 
+    font-size: 52px;
+    line-height: 52px;
+    margin: 0 0 40px 0; /* Увеличиваем отступ после лого */
+    font-weight: normal;
+    color: #f5f5f5; /* Белый для логотипа */
+}
+
+/* ================================================= */
+/* СТИЛИ ФОРМЫ */
+/* ================================================= */
+
+form {
+    /* Удалены лишние отступы, т.к. они есть в .login-box */
+    padding: 0;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px 10px; /* Увеличили padding для более высокого поля */
+    margin-bottom: 6px;
+    border: 1px solid #363636; /* Темная рамка поля */
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #121212; /* Очень темный фон поля */
+    font-size: 14px;
+    color: #f5f5f5; /* Светлый текст внутри поля */
+}
+
+/* Стилизация placeholder (текст внутри поля, когда оно пустое) */
+input::placeholder {
+    color: #a8a8a8;
+}
+
+.login-button {
+    width: 100%;
+    background-color: #0095f6; /* Ярко-синий, как на скриншоте */
+    color: #fff;
+    border: none; /* Убираем рамку */
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+/* ================================================= */
+/* ССЫЛКИ И РАЗДЕЛИТЕЛИ */
+/* ================================================= */
+
+.separator {
+    display: none; /* Разделитель "ИЛИ" отсутствует на новом макете */
+}
+
+.facebook-login {
+    display: none; /* Вход через Facebook отсутствует на новом макете */
+}
+
+.forgot-password {
+    color: #a8a8a8; /* Серый текст для "Забыли пароль?" */
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    padding-bottom: 25px;
+    margin-top: -10px; /* Сдвигаем вверх для лучшего расположения */
+}
+
+/* ================================================= */
+/* БЛОК "СОЗДАТЬ НОВЫЙ АККАУНТ" И "META" */
+/* ================================================= */
+
+.signup-box {
+    background-color: transparent; /* Убираем фон */
+    border: none; /* Убираем рамку */
+    width: 380px; /* Увеличиваем ширину для центрирования */
+    margin-top: 20px;
+}
+
+.signup-link {
+    color: #0095f6;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 0;
+    margin-top: 10px;
+    border: 1px solid #363636; /* Обводка кнопки "Создать новый аккаунт" */
+    border-radius: 6px;
+    width: 100%;
+    text-align: center;
+}
+
+.meta-link {
+    display: block;
+    color: #a8a8a8;
+    font-size: 12px;
+    text-decoration: none;
+    margin-top: 30px;
+    font-weight: 500;
+}
