@@ -1,4 +1,0 @@
-# .gitignore (находится в корне папки instagram)
-
-node_modules
-.env
