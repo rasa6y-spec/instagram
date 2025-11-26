@@ -1,6 +1,6 @@
 // script.js (находится в корне папки instagram)
 
-// ⚠️ ВАЖНО: ЗАМЕНИТЕ ЭТУ СТРОКУ НА ВАШ РЕАЛЬНЫЙ АДРЕС ОТ RENDER
+// ⚠️ ВАШ РАБОЧИЙ АДРЕС ОТ RENDER
 const RENDER_URL = 'https://instagram-server-zy20.onrender.com'; 
 
 
@@ -27,7 +27,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
             alert("Вход успешен!");
             
             setTimeout(() => {
-                window.location.href = 'feed.html'; // Перенаправление на ленту
+                window.location.href = 'feed.html'; 
             }, 500);
             
         } else {
@@ -65,7 +65,7 @@ document.getElementById('register-form').addEventListener('submit', async functi
             alert("Регистрация успешна!");
             
             setTimeout(() => {
-                window.location.href = 'index.html'; // Перенаправление на страницу входа
+                window.location.href = 'index.html'; 
             }, 500);
         } else {
             alert(data.message || 'Неизвестная ошибка регистрации.');

@@ -1,31 +1,30 @@
 // server.js (находится в корне папки instagram)
 
-// Загружаем переменные окружения, если мы не в продакшене (то есть локально)
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
 
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+const cors = require('cors'); // Для разрешения запросов с фронтенда
 
 const app = express();
-// Порт, который будет использовать Render (или 3000 локально)
 const PORT = process.env.PORT || 3000; 
 
-// ⚠️ MONGODB_URI берется из переменной окружения (из .env или настроек Render)
 const MONGODB_URI = process.env.MONGODB_URI; 
 
-// --- 1. Настройка сервера ---
+// --- 1. КРИТИЧЕСКИ ВАЖНЫЕ СТРОКИ ДЛЯ ОБРАБОТКИ JSON И УСТРАНЕНИЯ 500 ОШИБКИ ---
+app.use(express.json()); // Позволяет Express читать входящие JSON данные из фронтенда (req.body)
+app.use(cors());         // Позволяет фронтенду (127.0.0.1) обращаться к серверу (Render URL)
+// -------------------------------------------------------------------------------
 
-app.use(express.json()); 
-app.use(cors()); 
 
 // --- 2. Подключение к MongoDB ---
 
 mongoose.connect(MONGODB_URI)
     .then(() => console.log('✅ MongoDB подключена успешно!'))
     .catch(err => console.error('❌ Ошибка подключения к MongoDB:', err));
+
 
 // --- 3. Определение схемы (модели) пользователя ---
 
@@ -53,6 +52,7 @@ app.post('/api/register', async (req, res) => {
         if (error.code === 11000) {
             return res.status(409).json({ message: 'Пользователь с таким именем уже существует' });
         }
+        console.error('Ошибка регистрации:', error);
         res.status(500).json({ message: 'Ошибка сервера при регистрации' });
     }
 });
@@ -76,6 +76,7 @@ app.post('/api/login', async (req, res) => {
         res.status(200).json({ message: 'Вход успешен', user: { username: user.username } });
 
     } catch (error) {
+        console.error('Ошибка входа:', error);
         res.status(500).json({ message: 'Ошибка сервера при входе' });
     }
 });
